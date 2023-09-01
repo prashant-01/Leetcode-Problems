@@ -4,12 +4,9 @@ public:
     int i , int j){
         if(i == m)return 0;
         if(dp[i][j] != -1)return dp[i][j];
-
-        int ans , mn=INT_MAX;
-        ans = solve(triangle , dp , m , i+1 , j) + triangle[i][j];
-        mn=min(mn , ans);
-        ans = solve(triangle , dp , m , i+1 , j+1) + triangle[i][j];
-        mn=min(mn , ans);
+        int mn=INT_MAX;
+        mn=min(mn , solve(triangle , dp , m , i+1 , j) + triangle[i][j]);
+        mn=min(mn , solve(triangle , dp , m , i+1 , j+1) + triangle[i][j]);
         return dp[i][j]=mn;
     }
     int minimumTotal(vector<vector<int>>& triangle) {
