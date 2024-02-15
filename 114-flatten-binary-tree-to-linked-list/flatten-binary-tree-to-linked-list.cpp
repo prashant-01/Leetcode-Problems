@@ -26,15 +26,10 @@ public:
                 pre = find_pre(curr);
                 pre->right=curr->right;
                 curr->right=curr->left;
+                // left pointer ko NULL mark krte chalo
+                curr->left = NULL;
             }
             curr=curr->right; 
-        }
-
-        // left pointer null
-        curr = root;
-        while( curr != NULL ){
-            curr->left = NULL;
-            curr=curr->right;
         }
     }
 };
