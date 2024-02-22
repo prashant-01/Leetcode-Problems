@@ -11,21 +11,6 @@
  */
 class Solution {
 public:
-
-    vector<int>ans;
-    void levelOrder( TreeNode* root ){
-        queue<TreeNode*>q;
-        q.push(root);
-        while(!q.empty()){
-            TreeNode* temp = q.front();
-            q.pop();
-
-            ans.push_back(temp->val);
-
-            if( temp->left )q.push(temp->left);
-            if( temp->right )q.push(temp->right);
-        }
-    }
     TreeNode* node = NULL ;
     bool findNode( TreeNode* root , int val ){
         if( root == NULL )return false;
