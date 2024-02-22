@@ -18,13 +18,14 @@ public:
             node = root;
             return true;
         }
+        bool left , right;
         if( val < root->val ){
-            findNode( root->left , val);
+            left = findNode( root->left , val);
         }
         if( val > root->val ){
-            findNode( root->right , val);
+            right = findNode( root->right , val);
         }
-        return false;
+        return left || right ;
     }
     TreeNode* searchBST(TreeNode* root, int val) {
         findNode( root , val );
