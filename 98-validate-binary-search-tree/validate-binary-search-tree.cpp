@@ -19,7 +19,7 @@ public:
         return checkRoot && checkLeft && checkRight ;
     }
     bool isValidBST(TreeNode* root) {
-        if( root->left == NULL && root->right == NULL )return true;
+        // if( root->left == NULL && root->right == NULL )return true;
         long long int mn = -1000000000000, mx = 1000000000000;
         return isBST( root , mx , mn );
     }
