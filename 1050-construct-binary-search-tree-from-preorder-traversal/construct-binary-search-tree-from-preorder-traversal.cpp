@@ -13,16 +13,13 @@ class Solution {
 public:
     TreeNode* createBST( TreeNode* root , vector<int>& preorder , int &i , long long int mn , long long int mx ){
         if( i >= preorder.size() )return NULL;
-        if( preorder[i] > mn && preorder[i] < mx ){
-            root = new TreeNode(preorder[i]);
-            i++;
-        }
-        if( root != NULL ){
-            root->left = createBST( root->left , preorder , i , mn , root->val );
-            root->right = createBST( root->right , preorder , i , root->val , mx );
-        }
-        return root;
+        if( preorder[i] < mn || preorder[i] > mx )return NULL;
 
+        root = new TreeNode(preorder[i++]);
+        root->left = createBST( root->left , preorder , i , mn , root->val );
+        root->right = createBST( root->right , preorder , i , root->val , mx );
+
+        return root;
     }
     TreeNode* bstFromPreorder(vector<int>& preorder) {
         TreeNode* root = NULL;
